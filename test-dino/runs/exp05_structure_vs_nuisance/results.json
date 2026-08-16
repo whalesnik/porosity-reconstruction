@@ -1,0 +1,172 @@
+[
+  {
+    "variant": "resize224",
+    "extractor": "dinov2-small[cls]@last",
+    "per_kind": {
+      "brightness": 0.6105,
+      "contrast": 0.5645,
+      "noise": 0.756,
+      "pore_dilate": 0.8055,
+      "pore_erode": 0.8864999999999998,
+      "elastic": 0.529,
+      "block_shuffle": 0.8714999999999999
+    },
+    "structural": 0.7731249999999998,
+    "nuisance": 0.6436666666666667,
+    "selectivity": 0.12945833333333312,
+    "block_shuffle": 0.8714999999999999
+  },
+  {
+    "variant": "resize224",
+    "extractor": "dinov2-small[cls]@L3",
+    "per_kind": {
+      "brightness": 0.843,
+      "contrast": 0.9324999999999999,
+      "noise": 0.74,
+      "pore_dilate": 0.882,
+      "pore_erode": 0.845,
+      "elastic": 0.5225,
+      "block_shuffle": 0.8625
+    },
+    "structural": 0.778,
+    "nuisance": 0.8384999999999999,
+    "selectivity": -0.06049999999999989,
+    "block_shuffle": 0.8625
+  },
+  {
+    "variant": "resize224",
+    "extractor": "classic-stats",
+    "per_kind": {
+      "brightness": 0.9574999999999999,
+      "contrast": 1.0,
+      "noise": 0.8059999999999998,
+      "pore_dilate": 0.9914999999999999,
+      "pore_erode": 0.9855,
+      "elastic": 0.5065000000000001,
+      "block_shuffle": 0.9385
+    },
+    "structural": 0.8554999999999999,
+    "nuisance": 0.9211666666666666,
+    "selectivity": -0.06566666666666665,
+    "block_shuffle": 0.9385
+  },
+  {
+    "variant": "resize224",
+    "extractor": "classic-histogram",
+    "per_kind": {
+      "brightness": 0.9984999999999999,
+      "contrast": 0.9695,
+      "noise": 0.8440000000000001,
+      "pore_dilate": 0.998,
+      "pore_erode": 0.9995,
+      "elastic": 0.5050000000000001,
+      "block_shuffle": 0.5515000000000001
+    },
+    "structural": 0.7635000000000001,
+    "nuisance": 0.9373333333333335,
+    "selectivity": -0.1738333333333334,
+    "block_shuffle": 0.5515000000000001
+  },
+  {
+    "variant": "resize224",
+    "extractor": "classic-glcm",
+    "per_kind": {
+      "brightness": 0.6747500000000001,
+      "contrast": 0.97475,
+      "noise": 0.8245000000000001,
+      "pore_dilate": 0.87575,
+      "pore_erode": 0.9425000000000001,
+      "elastic": 0.643,
+      "block_shuffle": 0.9804999999999999
+    },
+    "structural": 0.8604375,
+    "nuisance": 0.8246666666666668,
+    "selectivity": 0.035770833333333196,
+    "block_shuffle": 0.9804999999999999
+  },
+  {
+    "variant": "tiles4x224",
+    "extractor": "dinov2-small[cls]@last",
+    "per_kind": {
+      "brightness": 0.621,
+      "contrast": 0.63,
+      "noise": 0.8149999999999998,
+      "pore_dilate": 1.0,
+      "pore_erode": 1.0,
+      "elastic": 0.526,
+      "block_shuffle": 1.0
+    },
+    "structural": 0.8815,
+    "nuisance": 0.6886666666666666,
+    "selectivity": 0.1928333333333333,
+    "block_shuffle": 1.0
+  },
+  {
+    "variant": "tiles4x224",
+    "extractor": "dinov2-small[cls]@L3",
+    "per_kind": {
+      "brightness": 0.9109999999999999,
+      "contrast": 0.9814999999999999,
+      "noise": 1.0,
+      "pore_dilate": 1.0,
+      "pore_erode": 1.0,
+      "elastic": 0.9119999999999999,
+      "block_shuffle": 0.998
+    },
+    "structural": 0.9775,
+    "nuisance": 0.9641666666666667,
+    "selectivity": 0.013333333333333308,
+    "block_shuffle": 0.998
+  },
+  {
+    "variant": "tiles4x224",
+    "extractor": "classic-stats",
+    "per_kind": {
+      "brightness": 0.885,
+      "contrast": 0.9780000000000001,
+      "noise": 0.849,
+      "pore_dilate": 0.9445,
+      "pore_erode": 0.9495000000000001,
+      "elastic": 0.5395000000000001,
+      "block_shuffle": 0.938
+    },
+    "structural": 0.842875,
+    "nuisance": 0.9039999999999999,
+    "selectivity": -0.061124999999999874,
+    "block_shuffle": 0.938
+  },
+  {
+    "variant": "tiles4x224",
+    "extractor": "classic-histogram",
+    "per_kind": {
+      "brightness": 0.991,
+      "contrast": 0.9405000000000001,
+      "noise": 0.8765000000000001,
+      "pore_dilate": 0.9570000000000001,
+      "pore_erode": 0.9890000000000001,
+      "elastic": 0.518,
+      "block_shuffle": 0.536
+    },
+    "structural": 0.7500000000000001,
+    "nuisance": 0.936,
+    "selectivity": -0.18599999999999994,
+    "block_shuffle": 0.536
+  },
+  {
+    "variant": "tiles4x224",
+    "extractor": "classic-glcm",
+    "per_kind": {
+      "brightness": 0.587,
+      "contrast": 0.9650000000000001,
+      "noise": 0.982,
+      "pore_dilate": 0.9995,
+      "pore_erode": 0.976,
+      "elastic": 0.7329999999999999,
+      "block_shuffle": 1.0
+    },
+    "structural": 0.927125,
+    "nuisance": 0.8446666666666666,
+    "selectivity": 0.08245833333333341,
+    "block_shuffle": 1.0
+  }
+]

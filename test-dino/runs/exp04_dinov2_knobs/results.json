@@ -1,0 +1,770 @@
+[
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls",
+    "input": "resize224",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.6105,
+      "contrast": 0.5645,
+      "noise": 0.756,
+      "blur": 0.74,
+      "resolution": 0.7255
+    },
+    "mean_synthetic": 0.6793000000000001,
+    "xe_natural": 0.9874999999999999
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls",
+    "input": "resize224",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.6655,
+      "contrast": 0.6495,
+      "noise": 0.767,
+      "blur": 0.7435,
+      "resolution": 0.73
+    },
+    "mean_synthetic": 0.7111,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls",
+    "input": "resize448",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.639,
+      "contrast": 0.6265000000000001,
+      "noise": 0.7615,
+      "blur": 0.756,
+      "resolution": 0.7135
+    },
+    "mean_synthetic": 0.6993,
+    "xe_natural": 0.9874999999999999
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls",
+    "input": "resize448",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.6755000000000001,
+      "contrast": 0.662,
+      "noise": 0.77,
+      "blur": 0.795,
+      "resolution": 0.7845000000000001
+    },
+    "mean_synthetic": 0.7373999999999999,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls",
+    "input": "crop224",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.5379999999999999,
+      "contrast": 0.5594999999999999,
+      "noise": 0.7325000000000002,
+      "blur": 0.7875,
+      "resolution": 0.7825000000000001
+    },
+    "mean_synthetic": 0.6799999999999999,
+    "xe_natural": 0.995
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls",
+    "input": "crop224",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.5995,
+      "contrast": 0.6185,
+      "noise": 0.8065000000000001,
+      "blur": 0.836,
+      "resolution": 0.9005000000000001
+    },
+    "mean_synthetic": 0.7522,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls",
+    "input": "crop448",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.48650000000000004,
+      "contrast": 0.513,
+      "noise": 0.658,
+      "blur": 0.7575,
+      "resolution": 0.6859999999999999
+    },
+    "mean_synthetic": 0.6202,
+    "xe_natural": 0.9400000000000001
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls",
+    "input": "crop448",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.555,
+      "contrast": 0.58,
+      "noise": 0.7314999999999999,
+      "blur": 0.825,
+      "resolution": 0.8404999999999999
+    },
+    "mean_synthetic": 0.7063999999999999,
+    "xe_natural": 0.95
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls",
+    "input": "tiles4x224",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.621,
+      "contrast": 0.63,
+      "noise": 0.8149999999999998,
+      "blur": 0.8844999999999998,
+      "resolution": 0.9664999999999999
+    },
+    "mean_synthetic": 0.7834,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls",
+    "input": "tiles4x224",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.6910000000000001,
+      "contrast": 0.7230000000000001,
+      "noise": 0.8525,
+      "blur": 0.9015000000000001,
+      "resolution": 0.9964999999999999
+    },
+    "mean_synthetic": 0.8329000000000001,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean",
+    "input": "resize224",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.6065,
+      "contrast": 0.5785,
+      "noise": 0.757,
+      "blur": 0.743,
+      "resolution": 0.7245
+    },
+    "mean_synthetic": 0.6819,
+    "xe_natural": 0.995
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean",
+    "input": "resize224",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.639,
+      "contrast": 0.636,
+      "noise": 0.759,
+      "blur": 0.764,
+      "resolution": 0.7474999999999999
+    },
+    "mean_synthetic": 0.7091000000000001,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean",
+    "input": "resize448",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.6155,
+      "contrast": 0.6214999999999999,
+      "noise": 0.7899999999999999,
+      "blur": 0.768,
+      "resolution": 0.729
+    },
+    "mean_synthetic": 0.7048,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean",
+    "input": "resize448",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.655,
+      "contrast": 0.676,
+      "noise": 0.776,
+      "blur": 0.7959999999999999,
+      "resolution": 0.7965
+    },
+    "mean_synthetic": 0.7399,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean",
+    "input": "crop224",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.533,
+      "contrast": 0.5635,
+      "noise": 0.7655000000000001,
+      "blur": 0.7745,
+      "resolution": 0.7855000000000001
+    },
+    "mean_synthetic": 0.6843999999999999,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean",
+    "input": "crop224",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.5894999999999999,
+      "contrast": 0.6200000000000001,
+      "noise": 0.821,
+      "blur": 0.8370000000000001,
+      "resolution": 0.9
+    },
+    "mean_synthetic": 0.7535000000000001,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean",
+    "input": "crop448",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.47750000000000004,
+      "contrast": 0.5045,
+      "noise": 0.704,
+      "blur": 0.7615000000000001,
+      "resolution": 0.7344999999999999
+    },
+    "mean_synthetic": 0.6363999999999999,
+    "xe_natural": 0.9574999999999999
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean",
+    "input": "crop448",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.526,
+      "contrast": 0.558,
+      "noise": 0.758,
+      "blur": 0.8230000000000001,
+      "resolution": 0.8630000000000001
+    },
+    "mean_synthetic": 0.7056,
+    "xe_natural": 0.97
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean",
+    "input": "tiles4x224",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.6050000000000001,
+      "contrast": 0.625,
+      "noise": 0.8405000000000001,
+      "blur": 0.8875,
+      "resolution": 0.977
+    },
+    "mean_synthetic": 0.787,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean",
+    "input": "tiles4x224",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.6539999999999999,
+      "contrast": 0.7064999999999999,
+      "noise": 0.8540000000000001,
+      "blur": 0.9099999999999999,
+      "resolution": 0.9925
+    },
+    "mean_synthetic": 0.8234,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls+mean",
+    "input": "resize224",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.6085,
+      "contrast": 0.5730000000000001,
+      "noise": 0.755,
+      "blur": 0.741,
+      "resolution": 0.7270000000000001
+    },
+    "mean_synthetic": 0.6809000000000001,
+    "xe_natural": 0.9924999999999999
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls+mean",
+    "input": "resize224",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.658,
+      "contrast": 0.648,
+      "noise": 0.766,
+      "blur": 0.75,
+      "resolution": 0.732
+    },
+    "mean_synthetic": 0.7108000000000001,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls+mean",
+    "input": "resize448",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.6299999999999999,
+      "contrast": 0.6260000000000001,
+      "noise": 0.7715,
+      "blur": 0.7575000000000001,
+      "resolution": 0.7135
+    },
+    "mean_synthetic": 0.6997,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls+mean",
+    "input": "resize448",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.667,
+      "contrast": 0.6635,
+      "noise": 0.7735000000000001,
+      "blur": 0.7925,
+      "resolution": 0.7855
+    },
+    "mean_synthetic": 0.7363999999999999,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls+mean",
+    "input": "crop224",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.533,
+      "contrast": 0.5605,
+      "noise": 0.7394999999999999,
+      "blur": 0.7825,
+      "resolution": 0.782
+    },
+    "mean_synthetic": 0.6795,
+    "xe_natural": 0.9974999999999999
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls+mean",
+    "input": "crop224",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.602,
+      "contrast": 0.6235,
+      "noise": 0.8099999999999999,
+      "blur": 0.8394999999999999,
+      "resolution": 0.899
+    },
+    "mean_synthetic": 0.7548,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls+mean",
+    "input": "crop448",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.48950000000000005,
+      "contrast": 0.5145,
+      "noise": 0.6705,
+      "blur": 0.757,
+      "resolution": 0.6995000000000001
+    },
+    "mean_synthetic": 0.6262000000000001,
+    "xe_natural": 0.9475
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls+mean",
+    "input": "crop448",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.551,
+      "contrast": 0.5765,
+      "noise": 0.7350000000000001,
+      "blur": 0.8264999999999999,
+      "resolution": 0.8459999999999999
+    },
+    "mean_synthetic": 0.7070000000000001,
+    "xe_natural": 0.95
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls+mean",
+    "input": "tiles4x224",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.616,
+      "contrast": 0.6275000000000001,
+      "noise": 0.8245000000000001,
+      "blur": 0.8855000000000001,
+      "resolution": 0.969
+    },
+    "mean_synthetic": 0.7845,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "cls+mean",
+    "input": "tiles4x224",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.6825000000000001,
+      "contrast": 0.7165,
+      "noise": 0.8515,
+      "blur": 0.905,
+      "resolution": 0.9949999999999999
+    },
+    "mean_synthetic": 0.8301000000000001,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean+std",
+    "input": "resize224",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.6119999999999999,
+      "contrast": 0.5855,
+      "noise": 0.757,
+      "blur": 0.754,
+      "resolution": 0.7350000000000001
+    },
+    "mean_synthetic": 0.6887000000000001,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean+std",
+    "input": "resize224",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.6429999999999999,
+      "contrast": 0.6365000000000001,
+      "noise": 0.7695000000000001,
+      "blur": 0.765,
+      "resolution": 0.752
+    },
+    "mean_synthetic": 0.7132000000000002,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean+std",
+    "input": "resize448",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.6345,
+      "contrast": 0.6365000000000001,
+      "noise": 0.7905,
+      "blur": 0.772,
+      "resolution": 0.743
+    },
+    "mean_synthetic": 0.7152999999999999,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean+std",
+    "input": "resize448",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.659,
+      "contrast": 0.6825,
+      "noise": 0.7835,
+      "blur": 0.8015000000000001,
+      "resolution": 0.8
+    },
+    "mean_synthetic": 0.7453,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean+std",
+    "input": "crop224",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.5415,
+      "contrast": 0.5765,
+      "noise": 0.773,
+      "blur": 0.787,
+      "resolution": 0.808
+    },
+    "mean_synthetic": 0.6971999999999999,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean+std",
+    "input": "crop224",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.599,
+      "contrast": 0.6214999999999999,
+      "noise": 0.817,
+      "blur": 0.8335000000000001,
+      "resolution": 0.9005000000000001
+    },
+    "mean_synthetic": 0.7543,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean+std",
+    "input": "crop448",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.48200000000000004,
+      "contrast": 0.5125,
+      "noise": 0.714,
+      "blur": 0.771,
+      "resolution": 0.7525000000000001
+    },
+    "mean_synthetic": 0.6464,
+    "xe_natural": 0.9574999999999999
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean+std",
+    "input": "crop448",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.5309999999999999,
+      "contrast": 0.5595000000000001,
+      "noise": 0.7655,
+      "blur": 0.8234999999999999,
+      "resolution": 0.869
+    },
+    "mean_synthetic": 0.7097,
+    "xe_natural": 0.97
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean+std",
+    "input": "tiles4x224",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.6125,
+      "contrast": 0.63,
+      "noise": 0.8405000000000001,
+      "blur": 0.8945000000000001,
+      "resolution": 0.9804999999999999
+    },
+    "mean_synthetic": 0.7916000000000001,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "last",
+    "pooling": "mean+std",
+    "input": "tiles4x224",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.666,
+      "contrast": 0.7035,
+      "noise": 0.8585,
+      "blur": 0.9129999999999999,
+      "resolution": 0.993
+    },
+    "mean_synthetic": 0.8267999999999999,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "L3",
+    "pooling": "cls",
+    "input": "tiles4x224",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.9109999999999999,
+      "contrast": 0.9814999999999999,
+      "noise": 1.0,
+      "blur": 1.0,
+      "resolution": 1.0
+    },
+    "mean_synthetic": 0.9785,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "L3",
+    "pooling": "cls",
+    "input": "tiles4x224",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.898,
+      "contrast": 0.993,
+      "noise": 1.0,
+      "blur": 1.0,
+      "resolution": 1.0
+    },
+    "mean_synthetic": 0.9782,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "L6",
+    "pooling": "cls",
+    "input": "tiles4x224",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.8504999999999999,
+      "contrast": 0.9470000000000001,
+      "noise": 0.9995,
+      "blur": 0.998,
+      "resolution": 1.0
+    },
+    "mean_synthetic": 0.959,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "L6",
+    "pooling": "cls",
+    "input": "tiles4x224",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.8765000000000001,
+      "contrast": 0.967,
+      "noise": 1.0,
+      "blur": 1.0,
+      "resolution": 1.0
+    },
+    "mean_synthetic": 0.9687000000000001,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "L9",
+    "pooling": "cls",
+    "input": "tiles4x224",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.7925,
+      "contrast": 0.8765000000000001,
+      "noise": 0.931,
+      "blur": 0.9595,
+      "resolution": 1.0
+    },
+    "mean_synthetic": 0.9118999999999999,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "small",
+    "layer": "L9",
+    "pooling": "cls",
+    "input": "tiles4x224",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.783,
+      "contrast": 0.8844999999999998,
+      "noise": 0.9359999999999999,
+      "blur": 0.944,
+      "resolution": 1.0
+    },
+    "mean_synthetic": 0.9094999999999999,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "base",
+    "layer": "L3",
+    "pooling": "cls",
+    "input": "tiles4x224",
+    "score": "knn5_cos",
+    "per_corruption": {
+      "brightness": 0.9245000000000001,
+      "contrast": 0.999,
+      "noise": 1.0,
+      "blur": 1.0,
+      "resolution": 1.0
+    },
+    "mean_synthetic": 0.9847000000000001,
+    "xe_natural": 1.0
+  },
+  {
+    "model": "base",
+    "layer": "L3",
+    "pooling": "cls",
+    "input": "tiles4x224",
+    "score": "mahalanobis",
+    "per_corruption": {
+      "brightness": 0.9280000000000002,
+      "contrast": 1.0,
+      "noise": 1.0,
+      "blur": 1.0,
+      "resolution": 1.0
+    },
+    "mean_synthetic": 0.9856,
+    "xe_natural": 1.0
+  }
+]

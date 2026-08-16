@@ -1,0 +1,22 @@
+Загружаю срезы...
+Строю искажения на полном разрешении 900x900 (это самая долгая часть)...
+  brightness     готов (0s)
+  contrast       готов (0s)
+  noise          готов (1s)
+  pore_dilate    готов (2s)
+  pore_erode     готов (2s)
+  elastic        готов (11s)
+  block_shuffle  готов (0s)
+Экстракторов: 5, наборов: 37, вариантов входа: 2
+  resize224   dinov2-small[cls]@last   структура=0.773 помехи=0.644 селективность=+0.129 shuffle=0.871 (45s)
+  resize224   dinov2-small[cls]@L3     структура=0.778 помехи=0.838 селективность=-0.060 shuffle=0.863 (50s)
+  resize224   classic-stats            структура=0.855 помехи=0.921 селективность=-0.066 shuffle=0.939 (1s)
+  resize224   classic-histogram        структура=0.764 помехи=0.937 селективность=-0.174 shuffle=0.552 (0s)
+  resize224   classic-glcm             структура=0.860 помехи=0.825 селективность=+0.036 shuffle=0.980 (2s)
+  tiles4x224  dinov2-small[cls]@last   структура=0.881 помехи=0.689 селективность=+0.193 shuffle=1.000 (153s)
+  tiles4x224  dinov2-small[cls]@L3     структура=0.978 помехи=0.964 селективность=+0.013 shuffle=0.998 (154s)
+  tiles4x224  classic-stats            структура=0.843 помехи=0.904 селективность=-0.061 shuffle=0.938 (5s)
+  tiles4x224  classic-histogram        структура=0.750 помехи=0.936 селективность=-0.186 shuffle=0.536 (1s)
+  tiles4x224  classic-glcm             структура=0.927 помехи=0.845 селективность=+0.082 shuffle=1.000 (6s)
+
+Готово за 440s -> C:\Disk_Z\CampProject\test-dino\runs\exp05_structure_vs_nuisance
