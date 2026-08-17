@@ -1,0 +1,37 @@
+[
+  {
+    "threshold": 50,
+    "vol_frac": 6.577437037037037,
+    "n_clusters": 1756,
+    "largest_frac": 12.901850771548975,
+    "percolates_z": false
+  },
+  {
+    "threshold": 35,
+    "vol_frac": 13.546003703703704,
+    "n_clusters": 1580,
+    "largest_frac": 88.02612551303227,
+    "percolates_z": true
+  },
+  {
+    "threshold": 25,
+    "vol_frac": 20.461070370370372,
+    "n_clusters": 1418,
+    "largest_frac": 95.85186973854053,
+    "percolates_z": true
+  },
+  {
+    "threshold": 15,
+    "vol_frac": 30.83358888888889,
+    "n_clusters": 1312,
+    "largest_frac": 99.00332357605684,
+    "percolates_z": true
+  },
+  {
+    "threshold": 10,
+    "vol_frac": 38.67392592592593,
+    "n_clusters": 1445,
+    "largest_frac": 99.59592835061616,
+    "percolates_z": true
+  }
+]

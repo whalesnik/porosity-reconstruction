@@ -1,0 +1,10 @@
+# входные данные и результаты объёмного размера - в репозиторий не кладём
+hgxdh8ps94-1/
+synthetic/
+results/*.npy
+results/*.stl
+results/*.npz
+results_*/
+paperfigs/*.png
+__pycache__/
+*.pyc
