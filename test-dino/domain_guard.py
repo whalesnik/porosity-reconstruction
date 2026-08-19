@@ -55,6 +55,8 @@ class GuardResult:
     structure: float            # z-оценка структурного сдвига
     structure_map: np.ndarray   # карта (16x16) структурной непохожести
     verdict: str
+    trust: float = 1.0          # 0..1, «насколько данные знакомы» (см. _trust)
+    p_typical: float = 1.0      # непараметрический p-value (см. _p_conformal)
     details: dict = field(default_factory=dict)
 
 
@@ -62,13 +64,43 @@ class DomainGuard:
     """Пороги калибруются по самим референсным данным (кросс-валидацией внутри
     reference), чтобы не подбирать их вручную под конкретный образец."""
 
-    def __init__(self, ref_stats, ref_tokens, mu_a, sd_a, mu_s, sd_s, backbone, window):
+    def __init__(self, ref_stats, ref_tokens, mu_a, sd_a, mu_s, sd_s, backbone, window,
+                 cal_a=None, cal_s=None):
         self.ref_stats = ref_stats
         self.ref_tokens = ref_tokens
         self.mu_a, self.sd_a = mu_a, sd_a
         self.mu_s, self.sd_s = mu_s, sd_s
         self.backbone = backbone
         self.window = window
+        # сырые leave-one-out скоры эталона — нужны для непараметрической вероятности
+        self.cal_a = np.asarray(cal_a) if cal_a is not None else None
+        self.cal_s = np.asarray(cal_s) if cal_s is not None else None
+
+    # ------------------------------------------------- вероятность доверия ---
+    @staticmethod
+    def _trust(z: float) -> float:
+        """0..1: доля эталонных срезов, которые выглядели бы как минимум настолько же
+        необычно. Нормировано так, что типичный срез даёт 1.0.
+
+        ВАЖНО про интерпретацию: это вероятность того, что данные ЗНАКОМЫ модели,
+        а не вероятность того, что предсказание реконструкции верно. Второе можно
+        будет утверждать только после проверки, что ошибка реконструкции реально
+        растёт вместе с этим числом — для этого нужна обученная модель Людей 2/3.
+
+        Ниже ~0.02 число не стоит читать буквально: при 40 эталонных срезах хвост
+        распределения не измерен, а экстраполирован, и означает просто «далеко за
+        пределами известного»."""
+        from math import erf, sqrt
+        upper_tail = 0.5 * (1.0 - erf(z / sqrt(2.0)))   # P(Z >= z) при N(0,1)
+        return float(min(1.0, 2.0 * upper_tail))
+
+    def _p_conformal(self, raw: float, cal: np.ndarray | None) -> float:
+        """Непараметрический p-value: какая доля эталонных срезов оказалась НЕ ближе
+        к норме, чем проверяемый. Не опирается на нормальность распределения, но
+        разрешение ограничено размером эталона (при 40 срезах шаг ~1/41 = 0.024)."""
+        if cal is None or len(cal) == 0:
+            return float("nan")
+        return float((1 + int((cal >= raw).sum())) / (len(cal) + 1))
 
     # ------------------------------------------------------------------ fit ---
     @classmethod
@@ -87,20 +119,32 @@ class DomainGuard:
         tokens = torch.stack([cls._slice_tokens(backbone, v) for v in norm])  # (N, T, D)
         bank = F.normalize(tokens.reshape(-1, tokens.shape[-1]), dim=1)
 
-        # калибровка: скор каждого референсного среза относительно ОСТАЛЬНЫХ
-        # (leave-one-out) — иначе пороги окажутся оптимистично занижены
-        a_scores, s_scores = [], []
-        for i in range(len(norm)):
-            others = torch.cat([hist[:i], hist[i + 1:]])
-            a_scores.append(L.knn_score(hist[i:i + 1], others, k=5, metric="cosine").item())
-            mask = torch.ones(len(norm), dtype=torch.bool)
-            mask[i] = False
-            bank_wo = F.normalize(tokens[mask].reshape(-1, tokens.shape[-1]), dim=1)
-            s_scores.append(float(cls._token_score(tokens[i], bank_wo).mean()))
-
-        a, s = np.array(a_scores), np.array(s_scores)
+        a, s = cls._calibrate(hist, tokens, bank)
         return cls(hist, bank, a.mean(), a.std() + 1e-8, s.mean(), s.std() + 1e-8,
-                   backbone, window)
+                   backbone, window, cal_a=a, cal_s=s)
+
+    @staticmethod
+    def _calibrate(hist: torch.Tensor, tokens: torch.Tensor, bank: torch.Tensor,
+                   k: int = 5) -> tuple[np.ndarray, np.ndarray]:
+        """Leave-one-out скоры эталона: каждый срез оценивается относительно ОСТАЛЬНЫХ.
+        Без этого пороги окажутся оптимистично занижены — срез всегда идеально
+        похож сам на себя.
+
+        Реализация через маскирование, а не пересборку банка. Наивный вариант
+        (собирать банк заново для каждого среза) при 900 срезах означал бы 900
+        пересборок матрицы на два миллиона векторов — часы вместо секунд."""
+        n, t, _ = tokens.shape
+        a_scores, s_scores = [], []
+        q_all = F.normalize(tokens.reshape(-1, tokens.shape[-1]), dim=1)
+        for i in range(n):
+            others = torch.cat([hist[:i], hist[i + 1:]])
+            a_scores.append(L.knn_score(hist[i:i + 1], others, k=k, metric="cosine").item())
+
+            d = 1 - q_all[i * t:(i + 1) * t] @ bank.T          # (t, n*t)
+            d[:, i * t:(i + 1) * t] = float("inf")             # свои патчи не считаются
+            s_scores.append(float(d.topk(min(k, d.shape[1]), largest=False)
+                                  .values.mean(dim=1).mean()))
+        return np.array(a_scores), np.array(s_scores)
 
     # ---------------------------------------------------------------- check ---
     def check(self, slice_2d: np.ndarray, z_warn: float = 3.0, z_alarm: float = 6.0) -> GuardResult:
@@ -125,11 +169,17 @@ class DomainGuard:
         else:
             verdict = "норма"
 
+        s_raw = float(per_patch.mean())
+        # доверие ведёт структурный канал: смена прибора лечится перенормировкой,
+        # а незнакомая структура — нет, поэтому именно она ограничивает доверие
         return GuardResult(acquisition=a_z, structure=s_z,
                            structure_map=per_patch.reshape(g, g).numpy(),
                            verdict=verdict,
-                           details={"acquisition_raw": a_raw,
-                                    "structure_raw": float(per_patch.mean())})
+                           trust=self._trust(s_z),
+                           p_typical=self._p_conformal(s_raw, self.cal_s),
+                           details={"acquisition_raw": a_raw, "structure_raw": s_raw,
+                                    "trust_acquisition": self._trust(a_z),
+                                    "p_typical_acquisition": self._p_conformal(a_raw, self.cal_a)})
 
     # ------------------------------------------------------------ внутреннее ---
     @staticmethod

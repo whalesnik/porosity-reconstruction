@@ -1,0 +1,17 @@
+{
+  "grid": 3,
+  "tile": 224,
+  "patches_per_tile": 256,
+  "tokens_per_slice": 2304,
+  "dim": 768,
+  "n_air": 900,
+  "n_xe": 900,
+  "window": [
+    7201.58984375,
+    10989.41015625
+  ],
+  "dtype": "float16",
+  "model": "facebook/dinov2-base",
+  "pooling_layer": "last",
+  "note": "банк 3x3 тайла; DomainGuard.check по умолчанию режет запрос 2x2"
+}
